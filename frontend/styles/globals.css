@@ -1,0 +1,8 @@
+:root{
+  --bg:#f7f7fb; --fg:#111827; --muted:#6b7280; --accent:#0ea5a4;
+}
+body{font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--fg);margin:0}
+.container{max-width:900px;margin:32px auto;padding:16px;background:white;border-radius:8px}
+header{display:flex;justify-content:space-between;align-items:center}
+nav a{margin-right:8px;color:var(--accent);text-decoration:none}
+.question{margin-bottom:12px}

@@ -1,0 +1,120 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+  assessments RiskAssessment[]
+}
+
+model Question {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  text      String
+  annex     String? // II or III
+  options   Json
+}
+
+model Questionnaire {
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+  // store question list as JSON for prototype
+  questions Json?
+}
+
+model Answer {
+  id         String @id @default(uuid())
+  questionId String
+  assessment RiskAssessment @relation(fields: [assessmentId], references: [id])
+  assessmentId String
+  value      String
+}
+
+model RiskAssessment {
+  id            String   @id @default(uuid())
+  user          User     @relation(fields: [userId], references: [id])
+  userId        String
+  score         Float
+  classification String
+  createdAt     DateTime @default(now())
+  answers       Answer[]
+  documents     Document[]
+  obligationMappings ObligationMapping[]
+  mitigations   MitigationPlan[]
+}
+
+model Document {
+  id        String   @id @default(uuid())
+  assessment RiskAssessment @relation(fields: [assessmentId], references: [id])
+  assessmentId String
+  type      String
+  url       String
+  createdAt DateTime @default(now())
+}
+
+model Log {
+  id        String   @id @default(uuid())
+  level     String
+  message   String
+  meta      Json?
+  createdAt DateTime @default(now())
+}
+
+model Audit {
+  id        String   @id @default(uuid())
+  action    String
+  actorId   String?
+  target    String?
+  details   Json?
+  createdAt DateTime @default(now())
+}
+
+model Obligation {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  title     String
+  description String?
+  relatedArticles String[] @default([])
+  obligationMappings ObligationMapping[]
+}
+
+model ObligationMapping {
+  id            String   @id @default(uuid())
+  assessment    RiskAssessment @relation(fields: [assessmentId], references: [id])
+  assessmentId  String
+  obligation    Obligation @relation(fields: [obligationId], references: [id])
+  obligationId  String
+}
+
+model RiskControl {
+  id          String @id @default(uuid())
+  code        String @unique
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  mitigation  MitigationPlan[]
+}
+
+model MitigationPlan {
+  id             String @id @default(uuid())
+  assessment     RiskAssessment @relation(fields: [assessmentId], references: [id])
+  assessmentId   String
+  control        RiskControl @relation(fields: [controlId], references: [id])
+  controlId      String
+  owner          String?
+  dueDate        DateTime?
+  status         String  @default("open")
+  notes          String?
+  createdAt      DateTime @default(now())
+}

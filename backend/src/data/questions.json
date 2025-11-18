@@ -1,0 +1,12 @@
+[
+  { "id": "q1", "code": "AII-1", "text": "Le système prend-il des décisions automatisées affectant des droits individuels (ex. admission, emploi, crédit)?", "annex": "II", "options": ["oui","non","partiellement"] },
+  { "id": "q2", "code": "AII-2", "text": "Le système est-il utilisé pour la gestion d'infrastructures critiques (énergie, transport, santé)?", "annex": "II", "options": ["oui","non"] },
+  { "id": "q3", "code": "AIII-1", "text": "Le système traite-t-il des données sensibles (santé, origine raciale, opinions politiques, biométrie)?", "annex": "III", "options": ["oui","non"] },
+  { "id": "q4", "code": "AIII-2", "text": "Le système utilise-t-il des techniques de reconnaissance faciale ou autres biométries?", "annex": "III", "options": ["oui","non"] },
+  { "id": "q5", "code": "AII-3", "text": "Le système est destiné à la gestion d'infrastructures publiques critiques (ex. contrôle trafic aérien)?", "annex": "II", "options": ["oui","non"] },
+  { "id": "q6", "code": "AII-4", "text": "Le système peut causer un risque de nuire à la santé ou à la sécurité physique?", "annex": "II", "options": ["oui","non","partiellement"] },
+  { "id": "q7", "code": "AII-5", "text": "Le système opère à grande échelle et influence des décisions automatisées pour des groupes (ex. notation sociale)?", "annex": "II", "options": ["oui","non"] },
+  { "id": "q8", "code": "AIII-3", "text": "Les données d'entraînement proviennent de sources non vérifiables ou biaisées?", "annex": "III", "options": ["oui","non","partiellement"] },
+  { "id": "q9", "code": "AII-6", "text": "Le système est destiné à une utilisation en milieu judiciaire ou par forces de l'ordre?", "annex": "II", "options": ["oui","non"] },
+  { "id": "q10", "code": "AII-7", "text": "Le système prend des décisions automatisées sans possibilité raisonnable de recours humain?", "annex": "II", "options": ["oui","non","partiellement"] }
+]
