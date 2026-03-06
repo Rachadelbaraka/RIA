@@ -19,3 +19,4 @@ docker compose up --build
 
 Ce dépôt contient un scaffold complet. Développement ultérieur: questionnaire dynamique, classification des risques, génération PDF, logs et audits.
 # RIAChange 1
+Change 2
