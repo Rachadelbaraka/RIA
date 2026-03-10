@@ -12,6 +12,7 @@ export default function Home() {
       <main>
         <h2>Bienvenue</h2>
         <p>Outil d'aide à la conformité RIA — prototype.</p>
+        <p style={{fontSize: '0.8rem', color: '#666'}}>Random change 2: un petit ajout de texte.</p>
       </main>
     </div>
   )
