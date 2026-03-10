@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { evaluateAssessmentDirect } from '../services/riskEngine';
 
+// Random change 3: added a comment to the risk controller
 export async function classify(req: Request, res: Response) {
   const { answers } = req.body;
   if (!answers) return res.status(400).json({ error: 'answers required' });
