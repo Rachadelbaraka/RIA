@@ -1,4 +1,5 @@
 version: '3.8'
+# Random change 5: small comment added to docker-compose
 services:
   db:
     image: postgres:15
